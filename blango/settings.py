@@ -48,12 +48,18 @@ class Dev(Configuration):
       'django.contrib.contenttypes',
       'django.contrib.sessions',
       'django.contrib.messages',
+      "django.contrib.sites",
       'django.contrib.staticfiles',
       'blog',
       'crispy_forms',
       'crispy_bootstrap5',
       "debug_toolbar",
-      "blango_auth"
+      "blango_auth",
+      "allauth",
+      "allauth.account",
+      "allauth.socialaccount",
+      "allauth.socialaccount.providers.google",
+
   ]
   INTERNAL_IPS = ["192.168.11.179"]
   MIDDLEWARE = [
@@ -122,7 +128,11 @@ class Dev(Configuration):
 
   # Internationalization
   # https://docs.djangoproject.com/en/3.2/topics/i18n/
-
+  SITE_ID = 1
+  ACCOUNT_USER_MODEL_USERNAME_FIELD = None
+  ACCOUNT_EMAIL_REQUIRED = True
+  ACCOUNT_USERNAME_REQUIRED = False
+  ACCOUNT_AUTHENTICATION_METHOD = "email"     
   LANGUAGE_CODE = 'en-us'
 
   TIME_ZONE = values.Value("UTC")
