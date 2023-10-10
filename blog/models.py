@@ -33,7 +33,7 @@ class Post(models.Model):
     modified_at = models.DateTimeField(auto_now=True)
     published_at = models.DateTimeField(blank=True, null=True)
     title = models.TextField(max_length=100)
-    slug = models.SlugField()
+    slug = models.SlugField(unique=True)
     summary = models.TextField(max_length=500)
     content = models.TextField()
     comments = GenericRelation(Comment)
