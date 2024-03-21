@@ -16,7 +16,7 @@ from configurations import Configuration
 from configurations import values
 import dj_database_url
 from datetime import timedelta
-
+  
 class Dev(Configuration):
   SIMPLE_JWT = {
         "ACCESS_TOKEN_LIFETIME": timedelta(days=1),
@@ -67,7 +67,8 @@ class Dev(Configuration):
       "rest_framework",
       "rest_framework.authtoken",
       "drf_yasg",
-      "django_filters"
+      "django_filters",
+      "versatileimagefield"
 
   ]
   REST_FRAMEWORK = {
@@ -244,6 +245,8 @@ class Dev(Configuration):
       'django.contrib.auth.hashers.PBKDF2SHA1PasswordHasher',
       'django.contrib.auth.hashers.BCryptSHA256PasswordHasher',
   ]
+  MEDIA_ROOT = BASE_DIR / "media"
+  MEDIA_URL = "/media/"
 class Prod(Dev):
     DEBUG = False
     DJANGO_ADMINS="Ben Shaw,ben@example.com;Leo Lucio,leo@example.com"
